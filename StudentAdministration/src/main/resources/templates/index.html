@@ -5,9 +5,26 @@
   <title>index</title>
 </head>
 <body>
-<h1>Student Administration</h1>
-<p>Please, choose an option:</p>
-
-
+  <h1>Student Administration</h1>
+  <p>Please, choose an option:</p>
+  <div>
+    <form th:action="@{/getAllStudents}">
+      <button type="submit">Read all registered students</button>
+    </form>
+    <form th:action="@{/getStudent}">
+      <button type="submit">Read a student record</button>
+    </form>
+    <form th:action="@{/registerStudent}">
+      <button type="submit">Register a new student</button>
+    </form>
+    <form th:action="@{/updateStudent}">
+      <button type="submit">Update an existing student</button>
+    </form>
+    <form th:action="@{/deleteStudent}">
+      <button type="submit">Unregister student</button>
+    </form>
+  </div>
 </body>
 </html>
+
+https://www.javaguides.net/2022/06/spring-boot-crud-example-without-database.html
