@@ -1,6 +1,6 @@
 package com.victorca.StudentAdministration.controller;
 
-import ch.qos.logback.core.model.Model;
+import org.springframework.ui.Model;
 import com.victorca.StudentAdministration.model.Student;
 import com.victorca.StudentAdministration.service.StudentService;
 import com.victorca.StudentAdministration.utils.ObjectsCreation;
@@ -13,38 +13,38 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.*;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("")
 public class StudentController {
     @Autowired
     StudentService studentService;
 
     @RequestMapping("")
-    public String index(Model containerToView){
-
+    public String index(){
         return "index";
     }
 
-/*
-    @RequestMapping({"/registerStudent", ""})
-    public String createStudent(Model containerToView){
+
+    @RequestMapping("/registerStudent")
+    public String createStudent(){
         return "registerstudent";
     }
-    @GetMapping("/registerStudent")
+
+    /*
+
+    @GetMapping(value={"/registerStudent", "/registerStudent/"})
     public String createStudent(Model containerToView){
-    containerToView.add
-        
-        return "studentForm";
+        containerToView.addAttribute("student", new Student());
+        containerToView.addAttribute("operation", "registerStudent");
+        return "registerstudent";
     }
     */
 
-    
 
     @RequestMapping({"/getAllStudents", ""})
     public String allStudents(Model containerToView){
-
+        containerToView.addAttribute("studentsFromController", studentService.getAllStudents());
         return "getallstudents";
     }
-
 
     @RequestMapping("/getStudent")
     public String getStudent(){
@@ -52,17 +52,16 @@ public class StudentController {
         return "getstudent";
     }
 
-
     @RequestMapping("/updateStudent")
     public String updateStudents(){
 
         return "updatestudent";
     }
 
-
     @RequestMapping("/deleteStudent")
     public String deleteStudent(){
 
         return "deletestudent";
     }
+
 }

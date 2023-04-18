@@ -1,6 +1,7 @@
 package com.victorca.StudentAdministration.utils;
 
 import com.github.javafaker.Faker;
+import com.github.javafaker.IdNumber;
 import com.victorca.StudentAdministration.model.Student;
 
 import java.util.ArrayList;
@@ -15,10 +16,11 @@ public class ObjectsCreation {
         int age = faker.number().numberBetween(1, 100);
         int currentCourse = faker.number().numberBetween(1, 10);
         String topic = faker.university().name();
+        IdNumber fakeID = faker.idNumber();
         List<String> subjects = new ArrayList<>();
         subjects.add(topic);
 
-        Student fakeStudent = new Student(firstName, lastName, age, currentCourse, subjects);
+        Student fakeStudent = new Student( fakeID, firstName, lastName, age, currentCourse, subjects);
         return fakeStudent;
     }
 
