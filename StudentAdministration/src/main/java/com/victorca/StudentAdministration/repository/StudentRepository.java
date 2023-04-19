@@ -13,7 +13,7 @@ import java.util.List;
 public class StudentRepository {
     private List<Student> students = new ArrayList<Student>();
 
-    public void createFakeStudent() {
+    public void createFakeStudent(){
         Faker faker = new Faker();
         List<String> subjects = new ArrayList<>();
         subjects.add(faker.university().name());
@@ -39,7 +39,6 @@ public class StudentRepository {
     }
 
     public List<Student> getAllStudents() {
-
         return students;
     }
 

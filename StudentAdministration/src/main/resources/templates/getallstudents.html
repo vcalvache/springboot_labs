@@ -9,6 +9,7 @@
 
     <table border="2">
         <tr>
+            <th>ID number</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Age</th>
@@ -16,6 +17,7 @@
             <th>Subjects subscribed</th>
         </tr>
         <tr th:each="student: ${studentsFromController}">
+            <td th:text="${student.idNumber}"></td>
             <td th:text="${student.firstName}"></td>
             <td th:text="${student.lastName}"></td>
             <td th:text="$student.age}"></td>
