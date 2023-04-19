@@ -2,15 +2,14 @@ package com.victorca.StudentAdministration.controller;
 
 import com.github.javafaker.Faker;
 import com.github.javafaker.IdNumber;
-import com.victorca.StudentAdministration.repository.StudentRepository;
 import org.springframework.ui.Model;
 import com.victorca.StudentAdministration.model.Student;
 import com.victorca.StudentAdministration.service.StudentService;
-import com.victorca.StudentAdministration.utils.ObjectsCreation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -21,37 +20,46 @@ import java.util.*;
 public class StudentController {
     @Autowired
     StudentService studentService;
-    @Autowired
-    StudentRepository studentRepository;
 
 
     @RequestMapping("")
     public String index(){
-        studentRepository.createFakeStudent();
         return "index";
     }
-/*
-    @RequestMapping("/registerStudent")
-    public String createStudent(){
-        return "registerstudent";
-    }
 
-
-
-    @GetMapping(value={"/registerStudent", "/registerStudent/"})
-    public String createStudent(Model containerToView){
-        containerToView.addAttribute("student", new Student());
-        containerToView.addAttribute("operation", "registerStudent");
-        return "registerstudent";
-    }
-
-*/
-    @RequestMapping({"/getAllStudents", ""})
-    public String getAllStudents(Model containerToView) {
-        // Retrieve all available users
-        containerToView.addAttribute("studentsFromController", studentService.getAllStudents());
+    @RequestMapping(value={"/getAllStudents", "/getAllStudents/"})
+    public String getAllStudents(Model model){
+        model.addAttribute("students", studentService.getAllStudents());
         return "getallstudents";
     }
+
+
+    /*
+    @GetMapping(value= {"/createStudent", "/createStudent/"})
+    public String createStudent(Model containerToView){
+        //containerToView.addAttribute("student", new Student());
+        //containerToView.addAttribute("operation", "createStudent");
+        return "registerstudent";
+    }
+
+    @PostMapping("/createStudent/{id}")
+    public String createStudent(@PathVariable("id") IdNumber idNumber, Optional<Student> student){
+
+        return"redirect:/createStudent";
+    }
+
+    @RequestMapping(value={"/getAllStudents", "/getAllStudents/"})
+    public String getAllStudents(Model model) {
+        // Retrieve all available users
+        model.addAttribute("studentsFromController", studentService.getAllStudents());
+        return "getallstudents";
+    }
+
+
+
+
+
+
 
     /*
     @RequestMapping(value="/getStudent/{idNUmber}")
@@ -73,6 +81,6 @@ public class StudentController {
 
         return "deletestudent";
     }
-     */
+    */
 
 }
