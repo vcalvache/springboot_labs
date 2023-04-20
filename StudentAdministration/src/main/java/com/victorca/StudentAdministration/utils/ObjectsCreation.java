@@ -3,6 +3,7 @@ package com.victorca.StudentAdministration.utils;
 import com.github.javafaker.Faker;
 import com.github.javafaker.IdNumber;
 import com.victorca.StudentAdministration.model.Student;
+import com.victorca.StudentAdministration.service.StudentService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,13 @@ public class ObjectsCreation {
 
         Student fakeStudent = new Student( fakeID, firstName, lastName, age, currentCourse, subjects);
         return fakeStudent;
+    }
+
+    public static void populateDB(int qty){
+        for (int i = 0; i <qty; i++){
+            StudentService.students.add(createStudent());
+        }
+
     }
 
 }

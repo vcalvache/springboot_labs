@@ -23,7 +23,7 @@ public class StudentController {
 
 
     @RequestMapping("")
-    public String index(){
+    public String index(Model model){
         return "index";
     }
 

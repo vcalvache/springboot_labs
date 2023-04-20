@@ -3,6 +3,7 @@ package com.victorca.StudentAdministration.service;
 import com.github.javafaker.Faker;
 import com.github.javafaker.IdNumber;
 import com.victorca.StudentAdministration.model.Student;
+import com.victorca.StudentAdministration.utils.ObjectsCreation;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Array;
@@ -15,17 +16,11 @@ public class StudentService {
     public static ArrayList<Student> students = new ArrayList<Student>();
 
     static{
-        Faker faker = new Faker();
-        List<String> subjects = new ArrayList<>();
-        subjects.add(faker.university().name());
-        subjects.add(faker.university().name());
-
-        Student fakeStudent = new Student(faker.idNumber(), faker.name().firstName(), faker.name().lastName(),
-                faker.number().numberBetween(18, 100), faker.number().numberBetween(1, 4), subjects);
-        students.add(fakeStudent);
+        ObjectsCreation.populateDB(5);
     }
 
     public ArrayList<Student> getAllStudents(){
+
         return students;
     }
 
