@@ -48,39 +48,30 @@ public class StudentController {
         return"redirect:/createStudent";
     }
 
-    @RequestMapping(value={"/getAllStudents", "/getAllStudents/"})
-    public String getAllStudents(Model model) {
-        // Retrieve all available users
-        model.addAttribute("studentsFromController", studentService.getAllStudents());
-        return "getallstudents";
-    }
 
-
-
-
-
-
-
-    /*
     @RequestMapping(value="/getStudent/{idNUmber}")
     public String getStudent(@PathVariable("idNumber")IdNumber idNumber, Model containerToView){
         Student studentFromDB = studentService.getStudent(idNumber);
         containerToView.addAttribute("student", studentFromDB);
         return "getstudent";
     }
+    */
 
-
-    @RequestMapping("/updateStudent")
-    public String updateStudents(){
-
+    @RequestMapping(value={"/updateStudent", "/updateStudent/"})
+    public String updateStudents(Model model){
+        model.addAttribute("students", studentService.getAllStudents());
         return "updatestudent";
     }
 
-    @RequestMapping("/deleteStudent")
-    public String deleteStudent(){
-
+    @RequestMapping(value={"/deleteStudent", "/deleteStudent/"})
+    public String deleteStudent(Model model){
+        model.addAttribute("students", studentService.getAllStudents());
         return "deletestudent";
     }
-    */
 
+    @GetMapping("/deleteStudent/{idNumber}")
+    public String deleteStudent(@PathVariable("idNumber") IdNumber idNumber){
+        studentService.deleteStudent(idNumber);
+        return "deletestudent";
+    }
 }

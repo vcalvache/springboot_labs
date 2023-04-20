@@ -6,5 +6,30 @@
 </head>
 <body>
     <h1>Unregister a student</h1>
+    <table border="2">
+        <tr>
+            <th>ID number</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Current Course</th>
+            <th>Subjects subscribed</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="student: ${students}">
+            <td th:text="${student.idNumber}"></td>
+            <td th:text="${student.firstName}"></td>
+            <td th:text="${student.lastName}"></td>
+            <td th:text="${student.age}"></td>
+            <td th:text="${student.currentCourse}"></td>
+            <td th:text="${student.subscribedSubjects}"></td>
+            <td>
+                <form th:action="@{/deleteStudent/{idNumber}(idNumber = ${student.idNumber})}">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
+<td> <a th:href="@{/boardgames/deleteGame/{id}(id = ${boardgame.gameID})}">Delete</a> </td>

@@ -64,9 +64,8 @@ public class StudentService {
         }
     }
 
-    public void deleteStudent(Student studentToDelete){
-        int index = getIndex(studentToDelete.getIdNumber());
-
+    public void deleteStudent(IdNumber idNumber){
+        int index = getIndex(idNumber);
         if (index != -1){
             students.remove(index);
         }

@@ -24,28 +24,7 @@
       <button type="submit">Unregister student</button>
     </form>
   </div>
-<div>
 
-  <table border="2">
-    <tr>
-      <th>ID number</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Age</th>
-      <th>Current Course</th>
-      <th>Subjects subscribed</th>
-    </tr>
-    <tr th:each="student: ${studentsFromController}">
-      <td th:text="${student.idNumber}"></td>
-      <td th:text="${student.firstName}"></td>
-      <td th:text="${student.lastName}"></td>
-      <td th:text="$student.age}"></td>
-      <td th:text="${student.currentCourse}"></td>
-      <td th:text="${student.firstName}"></td>
-      <td th:text="${student.subscribedSubjects}"></td>
-    </tr>
-  </table>
-</div>
 </body>
 </html>
 
