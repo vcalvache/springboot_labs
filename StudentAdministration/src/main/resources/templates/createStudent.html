@@ -7,24 +7,19 @@
 <body>
 <h1>Register a new student</h1>
 
-<form th:action="@{/createStudent/{operation}/{id}(operation=${operation}, id=${student.idNumber})}" th:object="${student}" method="post">
+<form th:action="@{/createStudent}" th:object="${student}" method="post">
 
-    <label for="idNumber">Student's ID number: </label>
-    <input th:field="*{idNumber}" type="text" name ="idNumber" id="idNumber"><br>
     <label for="firstName">Student's first name:</label><br>
     <input th:field="*{firstName}" type="text" name ="firstName" id="firstName"><br>
     <label for="lastName">Student's last name:</label><br>
     <input th:field="*{lastName}" type="text"  name ="lastName" id="lastName"><br>
     <label for="age">Student's age: </label><br>
     <input th:field="*{age}" type="text"  name ="age" id="age"><br>
-    <label for="currentCourse">Student's current course</label><br>
-    <input th:field="*{currentCourse}"type="text" name ="currentCourse" id="currentCourse"><br>
-    <label for="subject">Student's subject subscribed:</label><br>
-    <input th:field="*{subject}" type="text" name ="subject" id="subject"><br>
+    <label for="course">Student's current course</label><br>
+    <input th:field="*{course}"type="text" name ="course" id="course"><br>
     <input type="submit" value="Submit"/>
     <input type="reset" value="Reset fields"/>
 </form>
 
-</form>
 </body>
 </html>

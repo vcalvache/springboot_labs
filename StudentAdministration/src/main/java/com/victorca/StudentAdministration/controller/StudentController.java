@@ -7,10 +7,7 @@ import com.victorca.StudentAdministration.model.Student;
 import com.victorca.StudentAdministration.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.*;
@@ -20,7 +17,6 @@ import java.util.*;
 public class StudentController {
     @Autowired
     StudentService studentService;
-
 
     @RequestMapping("")
     public String index(Model model){
@@ -34,21 +30,21 @@ public class StudentController {
     }
 
 
-    /*
     @GetMapping(value= {"/createStudent", "/createStudent/"})
-    public String createStudent(Model containerToView){
-        //containerToView.addAttribute("student", new Student());
-        //containerToView.addAttribute("operation", "createStudent");
-        return "registerstudent";
+    public String createStudent(Model model){
+        model.addAttribute("student", new Student());
+        return "createStudent";
     }
 
-    @PostMapping("/createStudent/{id}")
-    public String createStudent(@PathVariable("id") IdNumber idNumber, Optional<Student> student){
-
-        return"redirect:/createStudent";
+    @PostMapping(value= "/createStudent")
+    public String createStudent(@ModelAttribute("student") Student student){
+        if (studentService.getIndex(student.getIdNumber()) != -1){
+            studentService.saveStudent(student);
+        }
+        return "redirect:/createStudent";
     }
 
-
+    /*
     @RequestMapping(value="/getStudent/{idNUmber}")
     public String getStudent(@PathVariable("idNumber")IdNumber idNumber, Model containerToView){
         Student studentFromDB = studentService.getStudent(idNumber);
@@ -72,6 +68,6 @@ public class StudentController {
     @GetMapping("/deleteStudent/{idNumber}")
     public String deleteStudent(@PathVariable("idNumber") IdNumber idNumber){
         studentService.deleteStudent(idNumber);
-        return "deletestudent";
+        return "redirect:/deletestudent/";
     }
 }

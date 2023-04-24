@@ -14,15 +14,13 @@
             <th>Last Name</th>
             <th>Age</th>
             <th>Current Course</th>
-            <th>Subjects subscribed</th>
         </tr>
         <tr th:each="student: ${students}">
             <td th:text="${student.idNumber}"></td>
             <td th:text="${student.firstName}"></td>
             <td th:text="${student.lastName}"></td>
             <td th:text="${student.age}"></td>
-            <td th:text="${student.currentCourse}"></td>
-            <td th:text="${student.subscribedSubjects}"></td>
+            <td th:text="${student.course}"></td>
         </tr>
     </table>
 

@@ -24,7 +24,8 @@ public class StudentService {
         return students;
     }
 
-    public void createStudent(Student student){
+    public void saveStudent(Student student){
+
         students.add(student);
     }
 
@@ -59,8 +60,7 @@ public class StudentService {
             students.get(index).setLastName(updatedStudent.getLastName());
             students.get(index).setLastName(updatedStudent.getLastName());
             students.get(index).setAge(updatedStudent.getAge());
-            students.get(index).setCurrentCourse(updatedStudent.getCurrentCourse());
-            students.get(index).setSubscribedSubjects(updatedStudent.getSubscribedSubjects());
+            students.get(index).setCourse(updatedStudent.getCourse());
         }
     }
 
