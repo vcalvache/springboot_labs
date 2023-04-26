@@ -19,14 +19,11 @@ public class Utils {
         Faker faker = new Faker();
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
-        String subject = faker.university().name();
-        ArrayList<String> subjects = new ArrayList<>();
-        subjects.add(subject);
+        String email = faker.bothify("email@email.com");
 
-        Student fakeStudent = new Student(firstName, lastName, subjects);
+        Student fakeStudent = new Student(firstName, lastName, email);
 
         return fakeStudent;
     }
-
 
 }

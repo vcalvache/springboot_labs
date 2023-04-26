@@ -17,21 +17,13 @@ public class Student {
     private String studentID;
     private String firstName;
     private String lastName;
-    private ArrayList<String> subjects;
+    private String email;
 
-    public Student(String firstName, String lastName){
+    public Student(String firstName, String lastName, String email){
         this.studentID = Utils.createUUID();
         this.firstName = firstName;
         this.lastName = lastName;
-        this.subjects = new ArrayList<>();
+        this.email = email;
     }
-    public Student(String firstName, String lastName, ArrayList<String> subjects){
-        this.studentID = Utils.createUUID();
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.subjects = subjects;
-    }
-
-
 
 }
