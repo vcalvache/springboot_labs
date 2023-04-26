@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>allStudents</title>
+</head>
+<body>
+All students will be listed here
+
+<table border="2">
+    <tr>
+        <th>Student ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+    </tr>
+    <tr th:each="student: ${students}">
+        <td th:text="${student.studentID}"></td>
+        <td th:text="${student.firstName}"></td>
+        <td th:text="${student.lastName}"></td>
+        <td th:text="${student.email}"></td>
+    </tr>
+</table>
+<div>
+    <a th:href="@{/student/}">Go Back</a>
+</div>
+</body>
+</html>

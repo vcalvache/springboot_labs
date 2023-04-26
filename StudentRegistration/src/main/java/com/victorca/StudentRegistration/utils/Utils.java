@@ -2,8 +2,6 @@ package com.victorca.StudentRegistration.utils;
 
 import com.github.javafaker.Faker;
 import com.victorca.StudentRegistration.model.Student;
-
-import java.util.ArrayList;
 import java.util.UUID;
 
 public class Utils {
