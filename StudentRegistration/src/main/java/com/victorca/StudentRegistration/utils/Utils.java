@@ -7,21 +7,16 @@ import java.util.UUID;
 public class Utils {
 
     public static String createUUID(){
-        UUID uuid = UUID.randomUUID();
-
-        return uuid.toString();
+        return UUID.randomUUID().toString();
     }
 
     public static Student createStudent(){
-
         Faker faker = new Faker();
+        String studentID = createUUID();
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
         String email = faker.bothify("email@email.com");
-
-        Student fakeStudent = new Student(firstName, lastName, email);
-
+        Student fakeStudent = new Student(studentID, firstName, lastName, email);
         return fakeStudent;
     }
-
 }

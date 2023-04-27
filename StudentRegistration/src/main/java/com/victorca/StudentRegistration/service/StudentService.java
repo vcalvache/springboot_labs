@@ -7,14 +7,7 @@ import java.util.HashMap;
 
 @Service
 public class StudentService {
-
     public static HashMap<String, Student> students = new HashMap<String, Student>();
-
-    /*
-    static{
-        populateDB(5);
-    }
-    */
 
     public static void createStudent() {
         Student fakeStudent = Utils.createStudent();
@@ -60,7 +53,7 @@ public class StudentService {
 
         }
     }
-    public static void deleteStudent(Student student){
+    public void deleteStudent(Student student){
         if(students.containsKey(student.getStudentID())){
             students.remove(student.getStudentID());
         }

@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 
 @Data
 @NoArgsConstructor
@@ -16,7 +18,8 @@ public class Student {
     private String email;
 
     public Student(String firstName, String lastName, String email){
-        this.studentID = Utils.createUUID();
+        String uuid = UUID.randomUUID().toString();
+        this.studentID = uuid;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

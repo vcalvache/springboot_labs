@@ -15,24 +15,18 @@ public class StudentService {
 
     public static ArrayList<Student> students = new ArrayList<Student>();
 
-    static{
-        ObjectsCreation.populateDB(5);
-    }
-
     public ArrayList<Student> getAllStudents(){
-
         return students;
     }
 
     public void saveStudent(Student student){
-
         students.add(student);
     }
 
-    public int getIndex(IdNumber idNumber) {
+    public int getIndex(String idNumber) {
         int index = 0;
         for (int i = 0; i < students.size(); i++) {
-            if (students.get(i).getIdNumber() == idNumber) {
+            if (students.get(i).getIdNumber().equals(idNumber)) {
                 index = i;
                 break;
             } else {
@@ -42,13 +36,13 @@ public class StudentService {
         return index;
     }
 
-    public Student getStudent(IdNumber idNumber){
+    public Student getStudent(String idNumber){
+        Student studentFound = new Student();
         int index = getIndex(idNumber);
         if (index != -1){
-            students.get(index);
-            return students.get(index);
+            studentFound = students.get(index);
+            return studentFound;
         }
-
         return  null;
     }
 
@@ -64,10 +58,11 @@ public class StudentService {
         }
     }
 
-    public void deleteStudent(IdNumber idNumber){
+    public void deleteStudent(String idNumber){
         int index = getIndex(idNumber);
         if (index != -1){
             students.remove(index);
         }
     }
 }
+

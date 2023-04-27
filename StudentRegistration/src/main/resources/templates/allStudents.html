@@ -14,15 +14,19 @@ All students will be listed here
         <th>Last Name</th>
         <th>Email</th>
     </tr>
+    <!--
     <tr th:each="student: ${students}">
         <td th:text="${student.studentID}"></td>
         <td th:text="${student.firstName}"></td>
         <td th:text="${student.lastName}"></td>
         <td th:text="${student.email}"></td>
     </tr>
+    -->
 </table>
 <div>
     <a th:href="@{/student/}">Go Back</a>
+    <br>
+    <a th:href="@{/}">Go to main menu</a>
 </div>
 </body>
 </html>

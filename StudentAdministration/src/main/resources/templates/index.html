@@ -8,19 +8,19 @@
   <h1>Student Administration</h1>
   <p>Please, choose an option:</p>
   <div>
-    <form th:action="@{/createStudent}">
+    <form th:action="@{/createStudent/}">
       <button type="submit">Register a new student</button>
     </form>
     <form th:action="@{/getAllStudents/}">
       <button type="submit">Read all registered students</button>
     </form>
-    <form th:action="@{/getStudent}">
+    <form th:action="@{/getStudent/}">
       <button type="submit">Read a student record</button>
     </form>
-    <form th:action="@{/updateStudent}">
+    <form th:action="@{/updateStudent/}">
       <button type="submit">Update an existing student</button>
     </form>
-    <form th:action="@{/deleteStudent}">
+    <form th:action="@{/deleteStudent/}">
       <button type="submit">Unregister student</button>
     </form>
   </div>

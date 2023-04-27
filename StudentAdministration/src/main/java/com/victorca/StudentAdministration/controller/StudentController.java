@@ -2,6 +2,7 @@ package com.victorca.StudentAdministration.controller;
 
 import com.github.javafaker.Faker;
 import com.github.javafaker.IdNumber;
+import com.victorca.StudentAdministration.utils.ObjectsCreation;
 import org.springframework.ui.Model;
 import com.victorca.StudentAdministration.model.Student;
 import com.victorca.StudentAdministration.service.StudentService;
@@ -15,8 +16,11 @@ import java.util.*;
 @Controller
 @RequestMapping("")
 public class StudentController {
+
+
     @Autowired
     StudentService studentService;
+
 
     @RequestMapping("")
     public String index(Model model){
@@ -44,14 +48,14 @@ public class StudentController {
         return "redirect:/createStudent";
     }
 
-    /*
+
     @RequestMapping(value="/getStudent/{idNUmber}")
-    public String getStudent(@PathVariable("idNumber")IdNumber idNumber, Model containerToView){
+    public String getStudent(@PathVariable("idNumber")String idNumber, Model containerToView){
         Student studentFromDB = studentService.getStudent(idNumber);
         containerToView.addAttribute("student", studentFromDB);
         return "getstudent";
     }
-    */
+
 
     @RequestMapping(value={"/updateStudent", "/updateStudent/"})
     public String updateStudents(Model model){
@@ -66,8 +70,8 @@ public class StudentController {
     }
 
     @GetMapping("/deleteStudent/{idNumber}")
-    public String deleteStudent(@PathVariable("idNumber") IdNumber idNumber){
+    public String deleteStudent(@PathVariable("idNumber") String idNumber){
         studentService.deleteStudent(idNumber);
-        return "redirect:/deletestudent/";
+        return "redirect:/getAllStudents";
     }
 }
