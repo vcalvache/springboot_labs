@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Administration Tool</title>
+</head>
+<body>
+
+<h1>Students administration tools</h1>
+
+Please, choose an option:
+
+<table border="2">
+  <tr>
+    <th>Student ID</th>
+    <th>First Name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Details</th>
+    <th>Update</th>
+    <th>Delete</th>
+  </tr>
+
+  <tr th:each="student: ${students}">
+    <td th:text="${student.studentID}"></td>
+    <td th:text="${student.firstName}"></td>
+    <td th:text="${student.lastName}"></td>
+    <td th:text="${student.email}"></td>
+    <!--
+    <td> <a th:href="@{/boardgames/id/{id}(id = ${boardgame.gameID})}">Student Details</a> </td>
+    <td> <a th:href="@{/boardgames/{id}(id = ${boardgame.gameTitle})}">Update Details</a></td>
+    <td> <a th:href="@{/boardgames/{id}(id = ${boardgame.gameTitle})}">Delete Student</a></td>
+    -->
+  </tr>
+</table>
+
+<p>
+  <a th:href="@{/student/createStudent/}">Add a new Student </a><br>
+</p>
+
+</body>
+</html>
