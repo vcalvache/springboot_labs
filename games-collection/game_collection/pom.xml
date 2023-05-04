@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.victorca</groupId>
-	<artifactId>boardgame-collection</artifactId>
+	<artifactId>game_collection</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>boardgame-collection</name>
+	<name>game_collection</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
